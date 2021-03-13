@@ -13,13 +13,14 @@ struct WidgetPreview: View {
     @Binding var textColor: Color
     @Binding var course: String
     @Binding var font: String
+    
     var body: some View {
         ZStack {
         LinearGradient(gradient: Gradient(colors: [(color1), (color2)]), startPoint: .leading, endPoint: .bottomTrailing)
             VStack {
                 HStack {
                 Text(course)
-                    .font(.custom(font, size: 32, relativeTo: .headline))
+                    .font(.custom(font, size: 24, relativeTo: .headline))
                     .foregroundColor((textColor))
                     Spacer()
                 }

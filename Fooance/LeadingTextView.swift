@@ -7,14 +7,28 @@
 
 import SwiftUI
 
-struct LeadingTextView: View {
+struct LeadingTextView2: View {
+    @Binding var text: String
+    @State var size: CGFloat
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+        Text(text)
+            .font(.custom("Poppins-Bold", size: size, relativeTo: .headline))
+            .foregroundColor(Color("text"))
+            Spacer()
+        } //.padding(.horizontal)
+    }
+}
+struct LeadingTextView: View {
+    @State var text: String
+    @State var size: CGFloat
+    var body: some View {
+        HStack {
+        Text(text)
+            .font(.custom("Poppins-Bold", size: size, relativeTo: .headline))
+            .foregroundColor(Color("text"))
+            Spacer()
+        } .padding(.horizontal)
     }
 }
 
-struct LeadingTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        LeadingTextView()
-    }
-}

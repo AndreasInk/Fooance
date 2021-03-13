@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClassSelectionView: View {
-    @State var classes = ["Math", "Science", "Spanish"]
+    @State var classes = ["Expirations", "Expenses"]
     @Binding var color1: Color
     @Binding var color2: Color
     @Binding var textColor: Color
@@ -23,7 +23,7 @@ struct ClassSelectionView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                         .frame(height: 60)
                     Text(course)
-                        .font(.custom("NunitoSans-Bold", size: 12, relativeTo: .subheadline))
+                        .font(.custom("Poppins-Bold", size: 12, relativeTo: .subheadline))
                         .foregroundColor(textColor)
                         .padding()
                 } .padding(.leading)

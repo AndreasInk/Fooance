@@ -12,15 +12,15 @@ struct ConfigureWidgetView: View {
     @State var color1 = Color("blue")
     @State var color2 = Color("lightBlue")
     @State var textColor = Color(.white)
-    @State var course = "Math"
-    @State var font = "Math"
+    @State var course = "Expirations"
+    @State var font = "Poppins-Bold"
     var body: some View {
         ZStack {
             Color.clear
                 .onAppear() {
-                    let defaults = UserDefaults(suiteName: "group.gradebook.app")
-                    color1 =  Color(defaults?.colorForKey(key: "color1") ?? .blue)
-                    color2 = Color(defaults?.colorForKey(key: "color2") ?? .systemBlue)
+                    let defaults = UserDefaults(suiteName: "group.foonance.app")
+                    color1 =  Color(defaults?.colorForKey(key: "color1") ?? UIColor(named: "blue")!)
+                    color2 = Color(defaults?.colorForKey(key: "color2") ?? UIColor(named: "lightBlue")!)
                 }
             ScrollView(showsIndicators: false) {
         VStack {
@@ -30,7 +30,7 @@ struct ConfigureWidgetView: View {
                 .rotation3DEffect(.degrees(3), axis: (x: 0, y: 1, z: 0))
                 .shadow(radius: 35)
                 
-                .padding(.vertical)
+                .padding(.vertical, 100)
             ClassSelectionView(color1: $color1, color2: $color2, textColor: $textColor, course: $course)
                 .onChange(of: course, perform: { value in
                     let defaults = UserDefaults(suiteName: "group.gradebook.app")

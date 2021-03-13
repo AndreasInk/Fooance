@@ -5,16 +5,33 @@
 //  Created by Andreas on 3/13/21.
 //
 
+import Foundation
 import SwiftUI
+import Combine
 
-struct UserData: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+final class UserData: ObservableObject {
+    
+    public static let shared = UserData()
+    
+    @Published(key: "firstRun")
+    var firstRun: Bool = true
+    
+    @Published(key: "isOnboardingCompleted")
+    var isOnboardingCompleted: Bool = false
+    
+    @Published(key: "isSetupCompleted")
+    var isSetupCompleted: Bool = false
+    
+    @Published(key: "name")
+    var name: String = "nil"
+    
+    @Published(key: "userID")
+    var userID: String = "\(UUID())"
+    
+    @Published(key: "monthlyBudget")
+    var monthlyBudget: Double = 0.0
+    
+ 
 }
 
-struct UserData_Previews: PreviewProvider {
-    static var previews: some View {
-        UserData()
-    }
-}
+
