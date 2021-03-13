@@ -63,7 +63,7 @@ struct ContentView: View {
                                Label("Home", systemImage: "house")
                            }
 
-                ExpensesRootView(lists: $lists, list: $list)
+                ExpensesRootView(lists: $lists, list: $list, i: $i)
                            .tabItem {
                                Label("Expenses", systemImage: "chart.bar")
                            }
