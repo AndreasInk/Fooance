@@ -145,7 +145,7 @@ struct smallWidgetView : View {
     @State var color1 = UIColor(named: "blue")
     @State var color2 = UIColor(named: "lightBlue")
     @State var textColor = UIColor(.white)
-    @State var course = "Expenses"
+    @State var course = "Expirations"
     @State var font = "Poppins-Bold"
     @Environment(\.widgetFamily) var size
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -177,7 +177,7 @@ struct smallWidgetView : View {
                    // dateString = dateFormatterGet.string(from: item.expirationDate)
                     #warning("Disable for launch")
                     let calendar = Calendar.current
-                    let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
+                    let date = calendar.date(byAdding: .day, value: 6, to: item.expirationDate)
                     item.expirationDate = date ?? Date()
                     let timeTill = Date().distance(to: item.expirationDate)
                     timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
@@ -186,7 +186,7 @@ struct smallWidgetView : View {
                 VStack {
                     HStack {
                     Text(course)
-                        .font(.custom(font, size: 20, relativeTo: .headline))
+                        .font(.custom(font, size: 16, relativeTo: .headline))
                         .foregroundColor((Color(textColor)))
                         Spacer()
                     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var lists = [ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())]
-    @State var i = 0
+    @State var i = 6
     @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())
     @State private var date = Date()
     @EnvironmentObject var userData: UserData
@@ -36,6 +36,7 @@ struct ContentView: View {
                             do {
                                 let note = try decoder.decode([ItemsList].self, from: jsonData)
                                 lists = note
+                                print(lists.count)
 //                                if i.first!.id == "1" {
 //                                    notes.removeFirst()
 //                                }
@@ -50,7 +51,8 @@ struct ContentView: View {
                     print(error.localizedDescription)
                     
                 }
-                    i = lists.count - 1
+                    #warning("disabled for now, will break if in prod")
+                   // i = lists.count - 1
 //                    if !items.isEmpty {
 ////                    items = lists.last?.items ?? [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)]
 ////                        i = lists.count - 1

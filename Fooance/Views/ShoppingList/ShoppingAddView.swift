@@ -30,13 +30,13 @@ struct ShoppingAddView: View {
             Button(action: {
                 if item.name.lowercased().contains("straw") || item.name.lowercased().contains("blue") || item.name.lowercased().contains("ras") || item.name.lowercased().contains("ban") || item.name.lowercased().contains("orang") {
                     let calendar = Calendar.current
-                    let date = calendar.date(byAdding: .day, value: 5, to: item.expirationDate)
+                    let date = calendar.date(byAdding: .day, value: 6, to: item.expirationDate)
                    
                     item.expirationDate = date!
                 }
                 if item.name.lowercased().contains("milk") || item.name.lowercased().contains("yo") {
                     let calendar = Calendar.current
-                    let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
+                    let date = calendar.date(byAdding: .day, value: 12, to: item.expirationDate)
                    
                     item.expirationDate = date!
                 }

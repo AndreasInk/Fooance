@@ -54,7 +54,7 @@ struct ShoppingListRow: View {
         }
         .sheet(isPresented: $open, content: {
             ZStack {
-                ItemDetailsView(item: $item)
+                ItemDetailsView(item: $item, locationManager: LocationManager())
                 VStack {
                     HStack {
                         Button(action: {
@@ -120,7 +120,7 @@ struct ShoppingListRow2: View {
         }
         .sheet(isPresented: $open, content: {
             ZStack {
-                ItemDetailsView(item: $item)
+                ItemDetailsView(item: $item, locationManager: LocationManager())
                 VStack {
                     HStack {
                         Button(action: {

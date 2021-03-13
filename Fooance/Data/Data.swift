@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct ItemsList: Identifiable, Hashable, Codable {
     var id = UUID()
     var items: [Item]
@@ -25,5 +25,24 @@ struct Item: Identifiable, Hashable, Codable {
 
 
 
+struct Landmark {
 
+    let placemark: MKPlacemark
+
+    var id: UUID {
+        return UUID()
+    }
+    var name: String {
+       
+        return self.placemark.name ?? ""
+    }
+    
+    var lat: Double {
+        return self.placemark.coordinate.latitude
+    }
+    
+    var lon: Double {
+        return self.placemark.coordinate.longitude
+    }
+}
 

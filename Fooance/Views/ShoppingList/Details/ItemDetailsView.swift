@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ItemDetailsView: View {
     @Binding var item: Item
@@ -13,7 +14,12 @@ struct ItemDetailsView: View {
     @State var timeTillString = ""
     @State var ready = false
     @State var edit = false
+    @State var directions = false
     @State var img = "icon"
+    @State var days = 0
+    @State var landmark = Landmark(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)))
+    @State var landmarks = [Landmark]()
+    @ObservedObject var locationManager: LocationManager
     var body: some View {
         ZStack {
             Color.clear
@@ -38,14 +44,18 @@ struct ItemDetailsView: View {
                    // dateString = dateFormatterGet.string(from: item.expirationDate)
                     #warning("Disable for launch")
                     let calendar = Calendar.current
-                    let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
-                    item.expirationDate = date ?? Date()
+//                    let date = calendar.date(byAdding: .day, value: 6, to: item.expirationDate)
+                    
                     let timeTill = Date().distance(to: item.expirationDate)
                     timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
+                    #warning("renable for launch")
+                  // days =  Int((timeTill / 86400).rounded())
                     ready = true
                 }
                 .padding(.bottom)
-                
+                .onAppear() {
+                    getNearbyLoc()
+                }
             if ready {
             LeadingTextView2(text: $item.name, size: 36)
                 .padding(.horizontal)
@@ -90,6 +100,9 @@ struct ItemDetailsView: View {
                     }
                 }
             })
+                if days == 0 {
+                    LocList(landmarks: landmarks, locationManager: LocationManager(), landmark: $landmark, directions: $directions)
+                }
             Spacer()
             }
         }
@@ -118,5 +131,24 @@ struct ItemDetailsView: View {
             }
         }
     }
+    private func getNearbyLoc() {
+           
+           let request = MKLocalSearch.Request()
+           request.naturalLanguageQuery = "Food-Bank"
+        request.pointOfInterestFilter = .excludingAll
+        request.region = locationManager.currentRegion ?? MKCoordinateRegion()
+           let search = MKLocalSearch(request: request)
+           search.start { (response, error) in
+               
+               if let response = response {
+                   
+                   let mapItems = response.mapItems
+                   
+                   self.landmarks = mapItems.map {
+                       Landmark(placemark: $0.placemark)
+                   }
+               }
+           }
+}
 }
 

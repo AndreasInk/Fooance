@@ -94,6 +94,9 @@
 		E1B540A025FCD8F200271BEB /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC6F25FCD3CC008E3DFB /* Poppins-SemiBold.ttf */; };
 		E1B540A125FCD8F200271BEB /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC7025FCD3CC008E3DFB /* Poppins-Italic.ttf */; };
 		E1B540A225FCD8F200271BEB /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC7125FCD3CC008E3DFB /* Poppins-MediumItalic.ttf */; };
+		E1B540B525FD126B00271BEB /* LocList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540B425FD126B00271BEB /* LocList.swift */; };
+		E1B540B925FD127600271BEB /* LocRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540B825FD127600271BEB /* LocRow.swift */; };
+		E1B540BD25FD12A100271BEB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540BC25FD12A100271BEB /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,9 @@
 		E12FAC6F25FCD3CC008E3DFB /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		E12FAC7025FCD3CC008E3DFB /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		E12FAC7125FCD3CC008E3DFB /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E1B540B425FD126B00271BEB /* LocList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocList.swift; sourceTree = "<group>"; };
+		E1B540B825FD127600271BEB /* LocRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocRow.swift; sourceTree = "<group>"; };
+		E1B540BC25FD12A100271BEB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +248,7 @@
 				E12FAB7D25FCCD5C008E3DFB /* AppDelegate.swift */,
 				E12FAB7F25FCCD5C008E3DFB /* SceneDelegate.swift */,
 				E12FABA825FCCE62008E3DFB /* Extensions.swift */,
+				E1B540BC25FD12A100271BEB /* LocationManager.swift */,
 				E12FABA425FCCE2A008E3DFB /* Data */,
 				E12FABC525FCCF5E008E3DFB /* Views */,
 				E12FAB8325FCCD5D008E3DFB /* Assets.xcassets */,
@@ -288,7 +295,7 @@
 				E12FABB125FCCEC4008E3DFB /* ShoppingListView.swift */,
 				E12FABB425FCCED8008E3DFB /* ShoppingListRow.swift */,
 				E12FABBD25FCCF21008E3DFB /* ShoppingAddView.swift */,
-				E12FABBA25FCCF0C008E3DFB /* ItemDetailsView.swift */,
+				E1B540B125FD125E00271BEB /* Details */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -387,6 +394,16 @@
 			name = Poppins;
 			path = Fooance/Poppins;
 			sourceTree = SOURCE_ROOT;
+		};
+		E1B540B125FD125E00271BEB /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				E12FABBA25FCCF0C008E3DFB /* ItemDetailsView.swift */,
+				E1B540B425FD126B00271BEB /* LocList.swift */,
+				E1B540B825FD127600271BEB /* LocRow.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -559,14 +576,17 @@
 				E12FAB9E25FCCDDF008E3DFB /* FontSelectionView.swift in Sources */,
 				E12FAB7E25FCCD5C008E3DFB /* AppDelegate.swift in Sources */,
 				E12FABBB25FCCF0C008E3DFB /* ItemDetailsView.swift in Sources */,
+				E1B540B925FD127600271BEB /* LocRow.swift in Sources */,
 				E12FAB8025FCCD5C008E3DFB /* SceneDelegate.swift in Sources */,
 				E12FABB825FCCEED008E3DFB /* LeadingTextView.swift in Sources */,
 				E12FABB525FCCED8008E3DFB /* ShoppingListRow.swift in Sources */,
 				E12FABC825FCCF84008E3DFB /* ExpensesView.swift in Sources */,
 				E12FABAC25FCCE9F008E3DFB /* ScanningView.swift in Sources */,
 				E12FABA625FCCE3E008E3DFB /* UserData.swift in Sources */,
+				E1B540B525FD126B00271BEB /* LocList.swift in Sources */,
 				E12FAB9B25FCCDB5008E3DFB /* ClassSelectionView.swift in Sources */,
 				E12FABA925FCCE62008E3DFB /* Extensions.swift in Sources */,
+				E1B540BD25FD12A100271BEB /* LocationManager.swift in Sources */,
 				E12FAB9825FCCDA9008E3DFB /* WidgetPreview.swift in Sources */,
 				E12FABBE25FCCF21008E3DFB /* ShoppingAddView.swift in Sources */,
 				E12FABC125FCCF37008E3DFB /* ExpensesRootView.swift in Sources */,

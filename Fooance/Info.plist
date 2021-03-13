@@ -2,22 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>To scan receipts</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Montserrat-Black.ttf</string>
-		<string>Poppins-Bold.ttf</string>
-		<string>Montserrat-ExtraBold.ttf</string>
-		<string>Montserrat-ExtraLight.ttf</string>
-		<string>Montserrat-Light.ttf</string>
-		<string>Montserrat-Medium.ttf</string>
-		<string>Montserrat-Regular.ttf</string>
-		<string>Montserrat-SemiBold.ttf</string>
-		<string>Montserrat-Thin.ttf</string>
-	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find local food banks</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Foonance</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,6 +24,20 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>To scan receipts</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Black.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Montserrat-ExtraBold.ttf</string>
+		<string>Montserrat-ExtraLight.ttf</string>
+		<string>Montserrat-Light.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>Montserrat-Thin.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

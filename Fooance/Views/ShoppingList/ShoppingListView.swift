@@ -18,8 +18,9 @@ struct ShoppingListView: View {
     @Binding var i: Int
     var body: some View {
         ZStack {
-            ScanningView(items: $items, isShowingScannerSheet: $isShowingScannerSheet)
-                
+            if lists.indices.contains(i) {
+            ScanningView(items: $lists[i].items, isShowingScannerSheet: $isShowingScannerSheet)
+            }
         VStack {
             HStack {
                 Button(action: {

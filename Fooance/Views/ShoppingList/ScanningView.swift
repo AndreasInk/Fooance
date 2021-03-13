@@ -12,31 +12,62 @@ import UIKit
 struct ScanningView: View {
     @Binding var items: [Item]
    // @Binding var alreadyCheckedNotis: Bool
-   
+    let tagger = NSLinguisticTagger(tagSchemes:[.tokenType, .language, .lexicalClass, .nameType, .lemma], options: 0)
+    let options: NSLinguisticTagger.Options = [.joinNames]
     var body: some View {
         Color.clear
             .sheet(isPresented: self.$isShowingScannerSheet) { self.makeScannerView() }
             .onChange(of: text, perform: { value in
-                var lines = text.components(separatedBy: "\n")
+                
                
-
+print(text)
+                if text.lowercased().contains("walmart") {
+                    var lines = tokenizeText(for: text)
                 for i in lines.indices {
                     print(lines[i])
-                    if containsPrice(text: lines[i]) {
+                    if isNumber(text: lines[i]) {
                         
                         let isIndexValid = lines.indices.contains(i - 1)
                         if isIndexValid {
-                            if !containsPrice(text: lines[i - 1]) {
+                            if containsLetter(text: lines[i - 1]) {
+                                print(1)
                                 if !isNotFood(text: lines[i - 1]) {
-                                    if isNumber(text: lines[i]) {
-                                    if !isNumber(text: lines[i - 1]) {
+                                    print(2)
+                                    if !isNotFood(text: lines[i]) {
+                                    print(3)
+                                    if !containsLetter(text: lines[i]) {
+                                        print(4)
+//                                    if isNumber(text: lines[i - 1]) {
+                                        print(5)
                                     lines[i] =  lines[i].replacingOccurrences(of: "$", with: "", options: NSString.CompareOptions.literal, range:nil)
                                     items.append(Item(name: lines[i - 1], type: "", price: (lines[i]), expirationDate: Date(), check: true, noti: true, notiSet: false))
-                                    }
-                                    }
+                                    }}
+                                  //  }
                             }
                             }
                         }
+                    }
+                }
+                } else {
+                    
+                    var lines = text.components(separatedBy: "\n")
+                    for i in lines.indices {
+                    let isIndexValid = lines.indices.contains(i - 1)
+                                         if isIndexValid {
+                                             if !containsPrice(text: lines[i - 1]) {
+                                                 if !isNotFood(text: lines[i - 1]) {
+                                                     if isNumber(text: lines[i]) {
+                                                        
+                                                     if !isNumber(text: lines[i - 1]) {
+                                                       
+                                                     lines[i] =  lines[i].replacingOccurrences(of: "$", with: "", options: NSString.CompareOptions.literal, range:nil)
+                                                     items.append(Item(name: lines[i - 1], type: "", price: (lines[i]), expirationDate: Date(), check: true, noti: true, notiSet: false))
+                                                     }
+                                                        }
+                                                     }
+                                             }
+                                             
+                                         }
                     }
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -119,6 +150,18 @@ struct ScanningView: View {
                 }
             })
     }
+  
+    func tokenizeText(for text: String) -> [String] {
+        var words = [String]()
+        tagger.string = text
+        let range = NSRange(location: 0, length: text.utf16.count)
+        tagger.enumerateTags(in: range, unit: .sentence, scheme: .tokenType, options: options) { tag, tokenRange, stop in
+            let word = (text as NSString).substring(with: tokenRange)
+            words.append(word)
+            
+        }
+        return words
+    }
     func containsPrice(text: String) -> Bool {
        
            
@@ -147,10 +190,32 @@ struct ScanningView: View {
             return false
         }
     }
+    func containsLetter(text: String) -> Bool {
+        let decimalCharacters = CharacterSet.letters
+
+        let decimalRange = text.rangeOfCharacter(from: decimalCharacters)
+       
+        if decimalRange != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    func isNotSymbol(text: String) -> Bool {
+        let decimalCharacters = CharacterSet.symbols
+
+        let decimalRange = text.rangeOfCharacter(from: decimalCharacters)
+       
+        if decimalRange != nil {
+            return true
+        } else {
+            return false
+        }
+    }
     func isNotFood(text: String) -> Bool {
        
            
-        let range = text.lowercased().contains("total") || text.lowercased().contains("subtotal") || text.lowercased().contains("cash") || text.lowercased().contains("cash") || text.lowercased().contains("change") || text.lowercased().contains("net") || text.lowercased() == "fo" || text.lowercased() == "fc"
+        let range = text.lowercased().contains("total") || text.lowercased().contains("subtotal") || text.lowercased().contains("cash") || text.lowercased().contains("cash") || text.lowercased().contains("change") || text.lowercased().contains("net") || text.lowercased() == "fo" || text.lowercased() == "fc" || text.lowercased().contains("BLVD") || text.lowercased().contains("walmart") || text.lowercased().contains("rd") || text.lowercased().contains("fl") || text.lowercased().contains("te") || text.lowercased().contains("/") || text.lowercased().contains("tc") || text.lowercased().contains("%") || text.lowercased().contains("tax") || text.lowercased().contains("ic") || text.lowercased().contains("@") || text.lowercased().contains("store")
             // range will be nil if no letters is found
         if range  {
                 return true
@@ -163,6 +228,7 @@ struct ScanningView: View {
           
           
         }
+    
     @Binding var isShowingScannerSheet: Bool
     @State private var text: String = ""
      
