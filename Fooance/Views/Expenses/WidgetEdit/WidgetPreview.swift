@@ -13,20 +13,38 @@ struct WidgetPreview: View {
     @Binding var textColor: Color
     @Binding var course: String
     @Binding var font: String
-    
+    @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())
+    @State var item = Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)
+    @State var timeTillString = ""
     var body: some View {
         ZStack {
         LinearGradient(gradient: Gradient(colors: [(color1), (color2)]), startPoint: .leading, endPoint: .bottomTrailing)
+            .onAppear() {
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+                
+               // dateString = dateFormatterGet.string(from: item.expirationDate)
+                #warning("Disable for launch")
+                let calendar = Calendar.current
+                let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
+                item.expirationDate = date ?? Date()
+                let timeTill = Date().distance(to: item.expirationDate)
+                timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
+                
+            }
             VStack {
                 HStack {
                 Text(course)
-                    .font(.custom(font, size: 24, relativeTo: .headline))
+                    .font(.custom(font, size: 20, relativeTo: .headline))
                     .foregroundColor((textColor))
                     Spacer()
                 }
                 HStack {
-                Text("A")
-                    .font(.custom(font, size: 36, relativeTo: .title))
+                    Text(item.name)
+                    .font(.custom(font, size: 22, relativeTo: .title))
                     .bold()
                     .foregroundColor((textColor))
                     Spacer()
@@ -35,23 +53,23 @@ struct WidgetPreview: View {
                 HStack {
                     VStack {
                         HStack {
-                    Text("Unit Test 1")
+                    Text("Expires in")
                         .foregroundColor((textColor))
-                        .font(.custom(font, size: 12, relativeTo: .subheadline))
+                        .font(.custom(font, size: 16, relativeTo: .subheadline))
                             Spacer()
                         }
                         HStack {
-                    Text("A")
-                        .font(.custom(font, size: 12, relativeTo: .subheadline))
+                    Text(timeTillString)
+                        .font(.custom(font, size: 16, relativeTo: .subheadline))
                         .foregroundColor((textColor))
                         
                             Spacer()
                         }
                     }
                     Spacer()
-                    Image(systemName: "doc")
-                        .font(.headline)
-                        .foregroundColor((textColor))
+                    Text("🍓")
+                        .font(.custom(font, size: 16, relativeTo: .subheadline))
+//                        .foregroundColor((textColor))
                     
                 }
             } .padding()

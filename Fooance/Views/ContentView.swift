@@ -55,6 +55,7 @@ struct ContentView: View {
 ////                    items = lists.last?.items ?? [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)]
 ////                        i = lists.count - 1
 //                }
+                    
                 }
             TabView {
                 ShoppingListView(lists: $lists, i: $i)

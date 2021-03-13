@@ -45,13 +45,18 @@ struct largeWidgetView : View {
     @State var color1 = UIColor(named: "blue")
     @State var color2 = UIColor(named: "lightBlue")
     @State var textColor = UIColor(.white)
-    @State var course = "Math"
+    @State var course = "Expenses"
     @State var font = "Poppins-Bold"
     @Environment(\.widgetFamily) var size
     let columns = [
             GridItem(.adaptive(minimum: 80)),
         GridItem(.adaptive(minimum: 80))
         ]
+    @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())
+    @State var expenses = [Double]()
+    @State var budget = 100.0
+    @State var budgetString = "100.0"
+    @State var ready = false
     var body: some View {
         ZStack {
             
@@ -63,52 +68,90 @@ struct largeWidgetView : View {
                     textColor = defaults?.colorForKey(key: "textColor") ?? textColor
                     font = defaults?.string(forKey: "font") ?? font
                     course = defaults?.string(forKey: "course") ?? course
+                    for i in list.items.indices.reversed() {
+                        if i > 3 {
+                            list.items.remove(at: i)
+                        }
+                       
+                    }
+                    expenses.removeAll()
+                    for item in list.items {
+                        
+                        expenses.append(Double(item.price) ?? 0.0)
+                    }
+                    ready = true
                 }
+            if ready {
             LinearGradient(gradient: Gradient(colors: [Color(color1!), Color(color2!)]), startPoint: .leading, endPoint: .bottomTrailing)
            
-            HStack {
-            VStack(spacing: 0) {
-                ForEach(0 ..< 3) { number in
-                    HStack {
-                HStack {
-                Text(course)
-                    .font(.custom(font, size: 18, relativeTo: .headline))
-                    .foregroundColor(Color(textColor))
-                    
-                }
-                HStack {
-                Text("A")
-                    .font(.custom(font, size: 20, relativeTo: .title))
-                    .bold()
-                    .foregroundColor(Color(textColor))
-                    Spacer()
-                }
+           
+            
+                
+               
                
                         VStack {
-                        LineChartView(data: [8,23,54,32,12,37,7,23,43], title: "", legend: "")
-                           
+//                            LineChartView(data: expenses, title: "Expenses", legend: "", style: ChartStyle.init(backgroundColor: Color(.systemBackground), accentColor: Color(.systemBlue), secondGradientColor: Color(.blue), textColor: Color(textColor), legendTextColor: Color(textColor), dropShadowColor: Color.clear), form: CGSize(width: 225, height: 25))
+                            ForEach(list.items.indices, id: \.self) { i2 in
+                                ShoppingListRow(item: list.items[i2], textColor: $textColor)
+                                Divider()
                         }
+                            HStack {
+                              
+                            Text("Monthly Budget")
+                                .font(.custom("Poppins-Bold", size: 18, relativeTo: .headline))
+                                .foregroundColor(Color(textColor))
+                                .padding(.trailing)
+                              
+                                HStack(spacing: 0) {
+                                    Text("$")
+                                        .foregroundColor(Color(textColor))
+                                        .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
+                            Text("\(budget.formattedWithSeparator)")
+                                .font(.custom("Poppins-Bold", size: 18, relativeTo: .headline))
+                                .foregroundColor(Color(textColor))
+                                
+                                } .padding(.leading)
+                                
+                                Spacer()
+                                HStack(spacing: 0) {
+                                    Text((Double(expenses.reduce(0, +)/budget).rounded(toPlaces: 3)*100).removeZerosFromEnd())
+                                        
+                                        .font(.custom("Poppins-Bold", size: 18, relativeTo: .headline))
+                                        .foregroundColor(Color(textColor))
+                                    Text("%")
+                                        .foregroundColor(Color(textColor))
+                                        .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
+                                } .padding(.leading)
+                               
+                            } .padding()
+//                            ProgressView(value: expenses.reduce(0, +)/budget)
+//                                .accentColor(Color(textColor))
+//                                .padding()
+                            //Spacer()
+                        } .padding(.vertical)
         
-            }
+            
                     
-                }
-           
-            }
                 
-            } .padding(.horizontal)
-        
+                
+            }
+        }
     }
 }
-}
+
+
 struct smallWidgetView : View {
     var entry: Provider.Entry
     @State var color1 = UIColor(named: "blue")
     @State var color2 = UIColor(named: "lightBlue")
     @State var textColor = UIColor(.white)
-    @State var course = "Math"
+    @State var course = "Expenses"
     @State var font = "Poppins-Bold"
     @Environment(\.widgetFamily) var size
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())
+    @State var item = Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)
+    @State var timeTillString = ""
     var body: some View {
         ZStack {
             
@@ -122,48 +165,67 @@ struct smallWidgetView : View {
                     course = defaults?.string(forKey: "course") ?? course
                 }
                 
-        LinearGradient(gradient: Gradient(colors: [Color(color1!), Color(color2!)]), startPoint: .leading, endPoint: .bottomTrailing)
-            VStack {
-                HStack {
-                Text(course)
-                    .font(.custom(font, size: 24, relativeTo: .headline))
-                    .foregroundColor(Color(textColor))
-                    Spacer()
-                }
-                HStack {
-                Text("A")
-                    .font(.custom(font, size: 28, relativeTo: .title))
-                    .bold()
-                    .foregroundColor(Color(textColor))
-                    Spacer()
-                }
-                Spacer()
-                HStack {
-                    VStack {
-                        HStack {
-                    Text("Unit Test 1")
-                        .foregroundColor(Color(textColor))
-                        .font(.custom(font, size: 12, relativeTo: .subheadline))
-                            Spacer()
-                        }
-                        HStack {
-                    Text("A")
-                        .font(.custom(font, size: 12, relativeTo: .subheadline))
-                        .foregroundColor(Color(textColor))
-                        
-                            Spacer()
-                        }
-                    }
-                    Spacer()
-                    Image(systemName: "doc")
-                        .font(.headline)
-                        .foregroundColor(Color(textColor))
+           
+            LinearGradient(gradient: Gradient(colors: [(Color(color1!)), (Color(color2!))]), startPoint: .leading, endPoint: .bottomTrailing)
+                .onAppear() {
+                    let dateFormatterGet = DateFormatter()
+                    dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+                    let dateFormatterPrint = DateFormatter()
+                    dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+                    
+                   // dateString = dateFormatterGet.string(from: item.expirationDate)
+                    #warning("Disable for launch")
+                    let calendar = Calendar.current
+                    let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
+                    item.expirationDate = date ?? Date()
+                    let timeTill = Date().distance(to: item.expirationDate)
+                    timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
                     
                 }
-            } .padding()
+                VStack {
+                    HStack {
+                    Text(course)
+                        .font(.custom(font, size: 20, relativeTo: .headline))
+                        .foregroundColor((Color(textColor)))
+                        Spacer()
+                    }
+                    HStack {
+                        Text(item.name)
+                        .font(.custom(font, size: 16, relativeTo: .title))
+                        
+                            .foregroundColor(Color(textColor.cgColor))
+                        Spacer()
+                    }
+                    Spacer()
+                    HStack {
+                        VStack {
+                            HStack {
+                        Text("Expires in")
+                            .foregroundColor(Color(textColor))
+                            .font(.custom(font, size: 16, relativeTo: .subheadline))
+                                Spacer()
+                            }
+                            HStack {
+                        Text(timeTillString)
+                            .font(.custom(font, size: 16, relativeTo: .subheadline))
+                            .foregroundColor(Color(textColor))
+                            
+                                Spacer()
+                            }
+                        }
+                        Spacer()
+                        Text("🍓")
+                            .font(.custom(font, size: 16, relativeTo: .subheadline))
+    //                        .foregroundColor((textColor))
+                        
+                    }
+                } .padding()
+                
+            }
         }
     }
-}
+
 struct WidgetEntryView : View {
     var entry: Provider.Entry
     @State var color1 = UIColor(named: "blue")
@@ -228,4 +290,176 @@ extension UserDefaults {
   set(colorData, forKey: key)
  }
 
+}
+
+struct ItemsList: Identifiable, Hashable, Codable {
+    var id = UUID()
+    var items: [Item]
+    var date: Date
+}
+struct Item: Identifiable, Hashable, Codable {
+    var id = UUID()
+    var name: String
+    var type: String
+    var price: String
+    var expirationDate: Date
+    var check: Bool
+    var noti: Bool
+    var notiSet: Bool
+}
+
+
+
+struct ShoppingListRow: View {
+    @State var item: Item
+    @State var open = false
+    @State var price = ""
+    @State var expenses = false
+    @Binding var textColor: UIColor
+    var body: some View {
+        HStack {
+            
+          
+               
+            VStack {
+                LeadingTextView2(text: $item.name, size: 18, textColor: $textColor)
+                    .padding(.horizontal)
+                    HStack(spacing: 0) {
+                        Text("$")
+                            .foregroundColor(Color(textColor))
+                            .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
+                        LeadingTextView2(text: $price, size: 14, textColor: $textColor)
+                    } .padding(.horizontal)
+                   
+                }
+            
+            Spacer()
+            
+//            if !expenses {
+//            Button(action: {
+//                item.check.toggle()
+//            }) {
+//                Image(systemName: "checkmark.circle")
+//                    .foregroundColor(item.check ? .green : .gray)
+//                    .font(.title)
+//                    .padding()
+//            }
+//            }
+        } //.padding()
+        .onChange(of: item.price, perform: { value in
+            price = item.price
+        })
+        .onAppear() {
+            
+            price = item.price
+            
+        }
+     
+    }
+}
+struct ShoppingListRow2: View {
+    @State var item: Item
+    @State var open = false
+    @State var price = ""
+    @State var expenses = false
+    @Binding var textColor: UIColor
+    var body: some View {
+        HStack {
+            
+            Button(action: {
+                open = true
+            }) {
+               
+            VStack {
+                LeadingTextView2(text: $item.name, size: 18, textColor: $textColor)
+                    .padding(.horizontal)
+                    HStack(spacing: 0) {
+                        Text("$")
+                            .foregroundColor(Color(textColor))
+                            .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
+                        LeadingTextView2(text: $price, size: 14, textColor: $textColor)
+                    } .padding(.horizontal)
+                   
+                }
+            
+            Spacer()
+            }
+//            if !expenses {
+//            Button(action: {
+//                item.check.toggle()
+//            }) {
+//                Image(systemName: "checkmark.circle")
+//                    .foregroundColor(item.check ? .green : .gray)
+//                    .font(.title)
+//                    .padding()
+//            }
+//            }
+        } //.padding()
+        .onChange(of: item.price, perform: { value in
+            price = item.price
+        })
+        .onAppear() {
+            
+            price = item.price
+            
+        }
+      
+    }
+}
+
+
+struct LeadingTextView2: View {
+    
+    @Binding var text: String
+    @State var size: CGFloat
+    @Binding var textColor: UIColor
+    var body: some View {
+        HStack {
+        Text(text)
+            .font(.custom("Poppins-Bold", size: size, relativeTo: .headline))
+            .foregroundColor(Color(textColor))
+            Spacer()
+        } //.padding(.horizontal)
+    }
+}
+struct LeadingTextView: View {
+    @State var text: String
+    @State var size: CGFloat
+    @Binding var textColor: UIColor
+    var body: some View {
+        HStack {
+        Text(text)
+            .font(.custom("Poppins-Bold", size: size, relativeTo: .headline))
+            .foregroundColor(Color(textColor))
+            Spacer()
+        } .padding(.horizontal)
+    }
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        return formatter
+    }()
+}
+extension Double {
+    func removeZerosFromEnd() -> String {
+        let formatter = NumberFormatter()
+        let number = NSNumber(value: self)
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
+        return String(formatter.string(from: number) ?? "")
+    }
+}
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
+extension Numeric {
+    var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }
