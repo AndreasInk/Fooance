@@ -30,10 +30,15 @@ struct ShoppingListView: View {
                     .padding()
                 }
                 Button(action: {
-                    
-                    items.append(Item(name: "", type: "", price: "", expirationDate: Date(), check: false, noti: true, notiSet: false))
-                    lists[lists.count - 1].items = items
+                    if lists.indices.contains(i) {
+                    lists[i].items.append(Item(name: "", type: "", price: "", expirationDate: Date(), check: false, noti: true, notiSet: false))
                     add = true
+                    }
+//                    let isIndexValid = lists.indices.contains(lists.count - 1)
+//                    if isIndexValid {
+//                    lists[lists.count - 1].items = items
+//                    add = true
+//                    }
                 }) {
                    Image(systemName: "plus")
                     .font(.headline)
@@ -80,6 +85,7 @@ struct ShoppingListView: View {
         if edit {
             ZStack {
                 Color(.systemBackground)
+                if lists.indices.contains(i) {
         List {
             ForEach(lists[i].items, id: \.self) { item in
                 ShoppingListRow2(item: item)
@@ -88,15 +94,17 @@ struct ShoppingListView: View {
         } .listStyle(PlainListStyle())
        
         .environment(\.editMode, edit ? .constant(.active) : .constant(.inactive))
-       
+                }
             }  .transition(.slide)
         } else {
+            if lists.indices.contains(i) {
             ScrollView {
                 ForEach(lists[i].items.indices, id: \.self) { i2 in
                     ShoppingListRow(item: $lists[i].items[i2])
                     Divider()
             }  .opacity(edit2 ? 0.0 : 1.0)
         }
+            }
         }
             Spacer()
                 
@@ -144,13 +152,28 @@ struct ShoppingListView: View {
                         }
                 }
                 } .sheet(isPresented: $add, content: {
-                    ShoppingAddView(item: $items[items.count - 1], add: $add)
+                    
+            if lists.indices.contains(i) {
+                if lists[i].items.indices.contains(lists[i].items.count - 1) {
+                ShoppingAddView(item: $lists[i].items[lists[i].items.count - 1], add: $add)
+            }
+            }
                 })
+           
+            
         }
+            if lists.indices.contains(i) {
+                Color.clear
+                .onChange(of: lists[i], perform: { value in
+                    items = lists[i].items
+                })
+            }
         }
-        .onChange(of: items, perform: { value in
-            lists[i].items = items
-        })
+//        .onChange(of: items, perform: { value in
+//            if lists.indices.contains(i) {
+//            lists[i].items = items
+//            }
+//        })
         .onChange(of: lists, perform: { value in
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(lists) {
@@ -168,6 +191,7 @@ struct ShoppingListView: View {
                
             }
         })
+       
     }
     
     func getDocumentsDirectory() -> URL {
@@ -178,17 +202,17 @@ struct ShoppingListView: View {
         return paths[0]
     }
     func delete(at offsets: IndexSet) {
-        
-        items.remove(atOffsets: offsets)
-       
+        if lists.indices.contains(i) {
+        lists[i].items.remove(atOffsets: offsets)
+        }
    
       
        }
     
     func move(from source: IndexSet, to destination: Int) {
-    
-        items.move(fromOffsets: source, toOffset: destination)
-       
+        if lists.indices.contains(i) {
+        lists[i].items.move(fromOffsets: source, toOffset: destination)
+        }
         }
 }
 

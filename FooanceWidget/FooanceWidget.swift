@@ -62,7 +62,7 @@ struct largeWidgetView : View {
             
             Color.clear
                 .onAppear() {
-                    let defaults = UserDefaults(suiteName: "group.fooance.app")
+                    let defaults = UserDefaults(suiteName: "group.foonance.app")
                     color1 = defaults?.colorForKey(key: "color1") ?? color1
                     color2 = defaults?.colorForKey(key: "color2") ?? color2
                     textColor = defaults?.colorForKey(key: "textColor") ?? textColor
@@ -157,7 +157,7 @@ struct smallWidgetView : View {
             
             Color.clear
                 .onAppear() {
-                    let defaults = UserDefaults(suiteName: "group.fooance.app")
+                    let defaults = UserDefaults(suiteName: "group.foonance.app")
                     color1 = defaults?.colorForKey(key: "color1") ?? color1
                     color2 = defaults?.colorForKey(key: "color2") ?? color2
                     textColor = defaults?.colorForKey(key: "textColor") ?? textColor

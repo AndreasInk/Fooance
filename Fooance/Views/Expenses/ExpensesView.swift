@@ -110,7 +110,12 @@ struct ExpensesView: View {
                                 budget = userData.monthlyBudget
                                 budgetString =  String(budget)
                             })
-                        
+                            .onChange(of: items, perform: { value in
+                                expenses.removeAll()
+                                for item in items {
+                                    expenses.append(Double(item.price) ?? 0.0)
+                                }
+                            })
                         ConfigureWidgetView()
                             
                     }
