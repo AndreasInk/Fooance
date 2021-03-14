@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0375B75EC352F49C35802275 /* Pods_FooanceWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EA7A1595BF3D3F3732873F /* Pods_FooanceWidgetExtension.framework */; };
 		E12FAB7E25FCCD5C008E3DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12FAB7D25FCCD5C008E3DFB /* AppDelegate.swift */; };
 		E12FAB8025FCCD5C008E3DFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12FAB7F25FCCD5C008E3DFB /* SceneDelegate.swift */; };
 		E12FAB8225FCCD5C008E3DFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12FAB8125FCCD5C008E3DFB /* ContentView.swift */; };
@@ -97,6 +98,10 @@
 		E1B540B525FD126B00271BEB /* LocList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540B425FD126B00271BEB /* LocList.swift */; };
 		E1B540B925FD127600271BEB /* LocRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540B825FD127600271BEB /* LocRow.swift */; };
 		E1B540BD25FD12A100271BEB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540BC25FD12A100271BEB /* LocationManager.swift */; };
+		E1B540C125FD25A300271BEB /* PickupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540C025FD25A300271BEB /* PickupView.swift */; };
+		E1BB9BEE25FD292A00F27C2B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB9BED25FD292A00F27C2B /* MapView.swift */; };
+		E1BB9BF225FD29D600F27C2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1BB9BF125FD29D600F27C2B /* GoogleService-Info.plist */; };
+		F217C0599709783673584015 /* Pods_Fooance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA195EE1E337323B85345EA /* Pods_Fooance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +129,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		27EA7A1595BF3D3F3732873F /* Pods_FooanceWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooanceWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FCC5CE0E845251FC248686 /* Pods-Fooance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooance.debug.xcconfig"; path = "Target Support Files/Pods-Fooance/Pods-Fooance.debug.xcconfig"; sourceTree = "<group>"; };
+		6CA195EE1E337323B85345EA /* Pods_Fooance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fooance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2AE76B819C6FA404E64A6A /* Pods-FooanceWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooanceWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-FooanceWidgetExtension/Pods-FooanceWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		CC2A98E4A2CD160C01363D58 /* Pods-FooanceWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooanceWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-FooanceWidgetExtension/Pods-FooanceWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		D9A5147C8432FD918C62992B /* Pods-Fooance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooance.release.xcconfig"; path = "Target Support Files/Pods-Fooance/Pods-Fooance.release.xcconfig"; sourceTree = "<group>"; };
 		E12FAB7A25FCCD5C008E3DFB /* Fooance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fooance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12FAB7D25FCCD5C008E3DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12FAB7F25FCCD5C008E3DFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +208,9 @@
 		E1B540B425FD126B00271BEB /* LocList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocList.swift; sourceTree = "<group>"; };
 		E1B540B825FD127600271BEB /* LocRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocRow.swift; sourceTree = "<group>"; };
 		E1B540BC25FD12A100271BEB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E1B540C025FD25A300271BEB /* PickupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupView.swift; sourceTree = "<group>"; };
+		E1BB9BED25FD292A00F27C2B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E1BB9BF125FD29D600F27C2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12FABF525FCCFC4008E3DFB /* SwiftUICharts in Frameworks */,
+				F217C0599709783673584015 /* Pods_Fooance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,12 +230,24 @@
 				E12FAC5125FCD10B008E3DFB /* SwiftUICharts in Frameworks */,
 				E12FAC3725FCD0B0008E3DFB /* SwiftUI.framework in Frameworks */,
 				E12FAC3625FCD0B0008E3DFB /* WidgetKit.framework in Frameworks */,
+				0375B75EC352F49C35802275 /* Pods_FooanceWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		442E01EE6D092B65E66C26D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55FCC5CE0E845251FC248686 /* Pods-Fooance.debug.xcconfig */,
+				D9A5147C8432FD918C62992B /* Pods-Fooance.release.xcconfig */,
+				CC2A98E4A2CD160C01363D58 /* Pods-FooanceWidgetExtension.debug.xcconfig */,
+				9F2AE76B819C6FA404E64A6A /* Pods-FooanceWidgetExtension.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E12FAB7125FCCD5C008E3DFB = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +256,7 @@
 				E12FAC3825FCD0B0008E3DFB /* FooanceWidget */,
 				E12FABFC25FCD081008E3DFB /* Frameworks */,
 				E12FAB7B25FCCD5C008E3DFB /* Products */,
+				442E01EE6D092B65E66C26D8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +280,7 @@
 				E12FABA425FCCE2A008E3DFB /* Data */,
 				E12FABC525FCCF5E008E3DFB /* Views */,
 				E12FAB8325FCCD5D008E3DFB /* Assets.xcassets */,
+				E1BB9BF125FD29D600F27C2B /* GoogleService-Info.plist */,
 				E12FABCB25FCCF97008E3DFB /* Poppins */,
 				E12FAB8825FCCD5D008E3DFB /* LaunchScreen.storyboard */,
 				E12FAB8B25FCCD5D008E3DFB /* Info.plist */,
@@ -352,6 +381,8 @@
 			children = (
 				E12FABFD25FCD081008E3DFB /* WidgetKit.framework */,
 				E12FABFF25FCD081008E3DFB /* SwiftUI.framework */,
+				6CA195EE1E337323B85345EA /* Pods_Fooance.framework */,
+				27EA7A1595BF3D3F3732873F /* Pods_FooanceWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -401,6 +432,8 @@
 				E12FABBA25FCCF0C008E3DFB /* ItemDetailsView.swift */,
 				E1B540B425FD126B00271BEB /* LocList.swift */,
 				E1B540B825FD127600271BEB /* LocRow.swift */,
+				E1B540C025FD25A300271BEB /* PickupView.swift */,
+				E1BB9BED25FD292A00F27C2B /* MapView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -412,10 +445,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E12FAB8E25FCCD5D008E3DFB /* Build configuration list for PBXNativeTarget "Fooance" */;
 			buildPhases = (
+				BF5DE0B5422B1533BF84A104 /* [CP] Check Pods Manifest.lock */,
 				E12FAB7625FCCD5C008E3DFB /* Sources */,
 				E12FAB7725FCCD5C008E3DFB /* Frameworks */,
 				E12FAB7825FCCD5C008E3DFB /* Resources */,
 				E12FAC1025FCD083008E3DFB /* Embed App Extensions */,
+				34A857D68D5A761A00D7E5E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,6 +469,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E12FAC4425FCD0B1008E3DFB /* Build configuration list for PBXNativeTarget "FooanceWidgetExtension" */;
 			buildPhases = (
+				5D0CAB17335E946B6E62A41F /* [CP] Check Pods Manifest.lock */,
 				E12FAC3125FCD0B0008E3DFB /* Sources */,
 				E12FAC3225FCD0B0008E3DFB /* Frameworks */,
 				E12FAC3325FCD0B0008E3DFB /* Resources */,
@@ -526,6 +562,7 @@
 				E12FABE525FCCF97008E3DFB /* Poppins-SemiBoldItalic.ttf in Resources */,
 				E12FABEA25FCCF97008E3DFB /* Poppins-Regular.ttf in Resources */,
 				E12FABE625FCCF97008E3DFB /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				E1BB9BF225FD29D600F27C2B /* GoogleService-Info.plist in Resources */,
 				E12FAC8225FCD3CC008E3DFB /* Poppins-SemiBold.ttf in Resources */,
 				E12FABEC25FCCF97008E3DFB /* Poppins-Bold.ttf in Resources */,
 				E12FAC7925FCD3CC008E3DFB /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -567,12 +604,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34A857D68D5A761A00D7E5E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fooance/Pods-Fooance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fooance/Pods-Fooance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fooance/Pods-Fooance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D0CAB17335E946B6E62A41F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FooanceWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF5DE0B5422B1533BF84A104 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fooance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E12FAB7625FCCD5C008E3DFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E12FABB225FCCEC4008E3DFB /* ShoppingListView.swift in Sources */,
+				E1BB9BEE25FD292A00F27C2B /* MapView.swift in Sources */,
 				E12FAB9E25FCCDDF008E3DFB /* FontSelectionView.swift in Sources */,
 				E12FAB7E25FCCD5C008E3DFB /* AppDelegate.swift in Sources */,
 				E12FABBB25FCCF0C008E3DFB /* ItemDetailsView.swift in Sources */,
@@ -589,6 +691,7 @@
 				E1B540BD25FD12A100271BEB /* LocationManager.swift in Sources */,
 				E12FAB9825FCCDA9008E3DFB /* WidgetPreview.swift in Sources */,
 				E12FABBE25FCCF21008E3DFB /* ShoppingAddView.swift in Sources */,
+				E1B540C125FD25A300271BEB /* PickupView.swift in Sources */,
 				E12FABC125FCCF37008E3DFB /* ExpensesRootView.swift in Sources */,
 				E12FAB9325FCCD6F008E3DFB /* ConfigureWidgetView.swift in Sources */,
 				E12FAB8225FCCD5C008E3DFB /* ContentView.swift in Sources */,
@@ -746,6 +849,7 @@
 		};
 		E12FAB8F25FCCD5D008E3DFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55FCC5CE0E845251FC248686 /* Pods-Fooance.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -770,6 +874,7 @@
 		};
 		E12FAB9025FCCD5D008E3DFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9A5147C8432FD918C62992B /* Pods-Fooance.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -794,6 +899,7 @@
 		};
 		E12FAC4525FCD0B1008E3DFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2A98E4A2CD160C01363D58 /* Pods-FooanceWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -816,6 +922,7 @@
 		};
 		E12FAC4625FCD0B1008E3DFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F2AE76B819C6FA404E64A6A /* Pods-FooanceWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;

@@ -120,7 +120,7 @@ print(text)
                         UNUserNotificationCenter.current().add(request)
                               
                     }
-                    if item.name.lowercased().contains("milk") || item.name.lowercased().contains("yo") {
+                    else if item.name.lowercased().contains("milk") || item.name.lowercased().contains("yo") {
                         let calendar = Calendar.current
                         let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
                        
@@ -144,6 +144,29 @@ print(text)
                               
                     }
                     //item.notiSet = true
+                    } else {
+                        let calendar = Calendar.current
+                        let date = calendar.date(byAdding: .day, value: 4, to: item.expirationDate)
+                       
+                        if !item.notiSet {
+                            
+                        let content = UNMutableNotificationContent()
+                        content.title = "🍓"
+                        
+                        content.subtitle = "You have mulitple items expiring soon!"
+                       
+                        content.sound = UNNotificationSound.default
+
+                        // show this notification five seconds from now
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval:  Date().distance(to: date ?? Date()), repeats: false)
+                                                                       
+                        // choose a random identifier
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                        // add our notification request
+                        UNUserNotificationCenter.current().add(request)
+                              
+                    }
                 }
                 }
                 }

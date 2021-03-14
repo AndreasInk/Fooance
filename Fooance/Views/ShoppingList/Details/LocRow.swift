@@ -47,13 +47,13 @@ struct LocRow: View {
                         Text(distanceInMiles.rounded(toPlaces: 1).removeZerosFromEnd())
                             .minimumScaleFactor(0.5)
                             .foregroundColor(.white)
-                            .font(.subheadline)
+                            .font(.custom("Poppins", size: 14, relativeTo: .subheadline))
 
 
                         Text("Mi")
                             .minimumScaleFactor(0.5)
                             .foregroundColor(.white)
-                            .font(.subheadline)
+                            .font(.custom("Poppins", size: 14, relativeTo: .subheadline))
      
                     }
                 }
@@ -64,7 +64,7 @@ Spacer()
 
                     Text(name)
                         .foregroundColor(Color("text"))
-                        .font(.headline)
+                        .font(.custom("Poppins", size: 16, relativeTo: .headline))
                         .multilineTextAlignment(.trailing)
 
 

@@ -46,3 +46,20 @@ struct Landmark {
     }
 }
 
+import SwiftUI
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+
+struct Pickups: Identifiable, Codable, Equatable, Hashable {
+    var id: String
+    var pickups: [Pickup]
+   
+    
+}
+
+struct Pickup: Identifiable, Codable, Equatable, Hashable {
+    var id: String
+    var dates: Date
+    var loc: GeoPoint
+    
+}

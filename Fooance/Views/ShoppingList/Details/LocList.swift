@@ -30,7 +30,7 @@ struct LocList: View {
                     .listRowBackground(Color("Light"))
                     .opacity(0.8)
             }
-            
+            .ignoresSafeArea()
         .background(Color("Light"))
         
         .edgesIgnoringSafeArea([.bottom])
