@@ -163,6 +163,7 @@ struct smallWidgetView : View {
                     textColor = defaults?.colorForKey(key: "textColor") ?? textColor
                     font = defaults?.string(forKey: "font") ?? font
                     course = defaults?.string(forKey: "course") ?? course
+                    timeTillString = "\(defaults?.integer(forKey: "min") ?? 0) " + "days"
                 }
                 
            
@@ -180,7 +181,7 @@ struct smallWidgetView : View {
                     let date = calendar.date(byAdding: .day, value: 6, to: item.expirationDate)
                     item.expirationDate = date ?? Date()
                     let timeTill = Date().distance(to: item.expirationDate)
-                    timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
+//                    timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
                     
                 }
                 VStack {

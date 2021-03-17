@@ -61,7 +61,7 @@ struct ItemDetailsView: View {
                     let timeTill = Date().distance(to: item.expirationDate)
                     timeTillString = String(Int((timeTill / 86400).rounded())) + " days"
                     #warning("renable for launch")
-                  // days =  Int((timeTill / 86400).rounded())
+                   days =  Int((timeTill / 86400).rounded())
                     ready = true
                 }
                 .padding(.bottom)
@@ -114,21 +114,21 @@ struct ItemDetailsView: View {
 //                }
 //            })
                 if days < 3 {
-                    Button(action: {
-                        pickup = true
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .padding()
-                                .frame(height: 100)
-                        Text("Request a pickup to donate your food")
-                            .font(.custom("Poppins", size: 18, relativeTo: .subheadline))
-                            .padding()
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white)
-                        }
-                    }
-                    LeadingTextView(text: "Or drop off your food at a local food bank", size: 18)
+//                    Button(action: {
+//                        pickup = true
+//                    }) {
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 25)
+//                                .padding()
+//                                .frame(height: 100)
+//                        Text("Request a pickup to donate your food")
+//                            .font(.custom("Poppins", size: 18, relativeTo: .subheadline))
+//                            .padding()
+//                            .multilineTextAlignment(.center)
+//                            .foregroundColor(.white)
+//                        }
+//                    }
+                    LeadingTextView(text: "Drop off your food at a local food bank", size: 18)
                     LocList(landmarks: landmarks, locationManager: LocationManager(), landmark: $landmark, directions: $directions)
                 }
             Spacer()

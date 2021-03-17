@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import WidgetKit
 struct ContentView: View {
     @State var lists = [ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())]
     @State var i = 6
@@ -40,6 +40,8 @@ struct ContentView: View {
 //                                if i.first!.id == "1" {
 //                                    notes.removeFirst()
 //                                }
+                               
+                                
                             } catch {
                                 print(error.localizedDescription)
                             }
@@ -70,7 +72,17 @@ struct ContentView: View {
                                Label("Expenses", systemImage: "chart.bar")
                            }
                     .onAppear() {
+                        var mins = [Int]()
+                        var items = [String]()
+                        var min = 0
                         for list in lists {
+                            for item in list.items {
+                                let timeTill = Date().distance(to: item.expirationDate)
+                                if !timeTill.isLess(than: 1.0) {
+                                mins.append(Int((timeTill / 86400).rounded()))
+                                    items.append(item.name)
+                                }
+                            }
                             let components = list.date.get(.day, .month, .year)
                             let components2 = date.get(.day, .month, .year)
                             if let today = components2.day, let month = components.month, let year = components.year {
@@ -91,11 +103,27 @@ struct ContentView: View {
                             }
                           
                         }
+                        let defaults = UserDefaults(suiteName: "group.foonance.app")
+                        defaults?.setValue(Int(mins.min() ?? 0), forKey: "min")
+                       
+                        defaults?.setValue(items[find(value: Int(mins.min() ?? 0), in: mins) ?? 0], forKey: "item")
+                        WidgetCenter.shared.reloadAllTimelines()
                     }
                    }
         
     }
 }
+    func find(value searchValue: Int, in array: [Int]) -> Int?
+    {
+        for (index, value) in array.enumerated()
+        {
+            if value == searchValue {
+                return index
+            }
+        }
+
+        return nil
+    }
     func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

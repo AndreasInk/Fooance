@@ -122,7 +122,7 @@ print(text)
                     }
                     else if item.name.lowercased().contains("milk") || item.name.lowercased().contains("yo") {
                         let calendar = Calendar.current
-                        let date = calendar.date(byAdding: .day, value: 14, to: item.expirationDate)
+                        let date = calendar.date(byAdding: .day, value: 7, to: item.expirationDate)
                        
                         if !item.notiSet {
                             
