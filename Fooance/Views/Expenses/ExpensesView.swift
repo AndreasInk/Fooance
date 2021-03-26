@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 struct ExpensesView: View {
     @Binding var items: [Item]
     @State var expenses = [Double]()
@@ -19,7 +18,7 @@ struct ExpensesView: View {
     var body: some View {
         
         VStack {
-            LineChartView(data: expenses, title: "Expenses", legend: "", style: ChartStyle.init(backgroundColor: Color(.systemBackground), accentColor: Color(.systemBlue), secondGradientColor: Color(.blue), textColor: Color("text"), legendTextColor: Color("text"), dropShadowColor: Color.clear), form: CGSize(width: screenSize.width/1.1, height: screenSize.width/1.1))
+            LineChartView(data: expenses, title: "Expenses", legend: "", style: ChartStyle.init(backgroundColor: Color(.systemBackground), accentColor: Color(.systemBlue), secondGradientColor: Color(.blue), textColor: Color("text"), legendTextColor: Color("text"), dropShadowColor: Color.clear), form: CGSize(width: screenSize.width, height: screenSize.width/1.1))
                 .onAppear() {
                     expenses.removeAll()
                     for item in items {
@@ -29,7 +28,7 @@ struct ExpensesView: View {
                     budget = userData.monthlyBudget
                     budgetString = String(userData.monthlyBudget)
                 }
-                .padding()
+                
                 
             if isReady {
                 
@@ -39,7 +38,6 @@ struct ExpensesView: View {
                             settings.toggle()
                         }) {
                             Image(systemName: "gear")
-                                .foregroundColor(Color(.systemBlue))
                                 .font(.headline)
                                 .padding()
                         }

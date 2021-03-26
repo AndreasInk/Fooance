@@ -20,11 +20,11 @@ struct ScanningView: View {
             .onChange(of: text, perform: { value in
                 
                
-print(text)
+//print(text)
                 if text.lowercased().contains("walmart") {
                     var lines = tokenizeText(for: text)
                 for i in lines.indices {
-                    print(lines[i])
+                 //   print(lines[i])
                     if isNumber(text: lines[i]) {
                         
                         let isIndexValid = lines.indices.contains(i - 1)
@@ -96,8 +96,12 @@ print(text)
                     
                 }
                     #warning("Double check")
+                    let vegetables = Bundle.main.decode(Vegetables.self, from: "vegetables.json")
+                    let fruits = Bundle.main.decode(Fruits.self, from: "fruits.json")
                 for item in groupedItems {
-                    if item.name.lowercased().contains("straw") || item.name.lowercased().contains("blue") || item.name.lowercased().contains("ras") || item.name.lowercased().contains("ban") || item.name.lowercased().contains("orang") {
+                    for v in vegetables.vegetables {
+                        for f in fruits.fruits {
+                            if item.name.lowercased().contains(f.lowercased())  {
                         let calendar = Calendar.current
                         let date = calendar.date(byAdding: .day, value: 6, to: item.expirationDate)
                        
@@ -118,7 +122,7 @@ print(text)
 
                         // add our notification request
                         UNUserNotificationCenter.current().add(request)
-                              
+                              print(f)
                     }
                     else if item.name.lowercased().contains("milk") || item.name.lowercased().contains("yo") {
                         let calendar = Calendar.current
@@ -144,6 +148,10 @@ print(text)
                               
                     }
                     //item.notiSet = true
+                        
+                    } else if item.name.lowercased().contains(v.lowercased())  {
+                        
+                    
                     } else {
                         let calendar = Calendar.current
                         let date = calendar.date(byAdding: .day, value: 4, to: item.expirationDate)
@@ -168,6 +176,8 @@ print(text)
                               
                     }
                 }
+                }
+                    }
                 }
                 }
                 }

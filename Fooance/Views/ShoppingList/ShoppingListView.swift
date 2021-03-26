@@ -90,6 +90,9 @@ struct ShoppingListView: View {
         List {
             ForEach(lists[i].items, id: \.self) { item in
                 ShoppingListRow2(item: item)
+                    .onAppear() {
+                        print(item)
+                    }
         } .onMove(perform: move)
         .onDelete(perform: delete)
         } .listStyle(PlainListStyle())

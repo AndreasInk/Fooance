@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FontSelectionView: View {
-    @State var fonts = ["Poppins-Bold", "Poppins-SemiBold"]
+    @State var fonts = ["Poppins-Bold"]
     @Binding var color1: Color
     @Binding var color2: Color
     @Binding var textColor: Color

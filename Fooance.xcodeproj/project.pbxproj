@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,6 @@
 		E12FABEF25FCCF97008E3DFB /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FABDC25FCCF97008E3DFB /* Poppins-SemiBold.ttf */; };
 		E12FABF025FCCF97008E3DFB /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FABDD25FCCF97008E3DFB /* Poppins-Italic.ttf */; };
 		E12FABF125FCCF97008E3DFB /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FABDE25FCCF97008E3DFB /* Poppins-MediumItalic.ttf */; };
-		E12FABF525FCCFC4008E3DFB /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E12FABF425FCCFC4008E3DFB /* SwiftUICharts */; };
 		E12FAC3625FCD0B0008E3DFB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12FABFD25FCD081008E3DFB /* WidgetKit.framework */; };
 		E12FAC3725FCD0B0008E3DFB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12FABFF25FCD081008E3DFB /* SwiftUI.framework */; };
 		E12FAC3A25FCD0B0008E3DFB /* FooanceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12FAC3925FCD0B0008E3DFB /* FooanceWidget.swift */; };
@@ -56,7 +55,6 @@
 		E12FAC3F25FCD0B1008E3DFB /* FooanceWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E12FAC3B25FCD0B0008E3DFB /* FooanceWidget.intentdefinition */; };
 		E12FAC4025FCD0B1008E3DFB /* FooanceWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E12FAC3B25FCD0B0008E3DFB /* FooanceWidget.intentdefinition */; };
 		E12FAC4325FCD0B1008E3DFB /* FooanceWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E12FAC3525FCD0B0008E3DFB /* FooanceWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E12FAC5125FCD10B008E3DFB /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E12FAC5025FCD10B008E3DFB /* SwiftUICharts */; };
 		E12FAC7225FCD3CC008E3DFB /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC5F25FCD3CC008E3DFB /* Poppins-ExtraLight.ttf */; };
 		E12FAC7325FCD3CC008E3DFB /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC6025FCD3CC008E3DFB /* Poppins-ThinItalic.ttf */; };
 		E12FAC7425FCD3CC008E3DFB /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E12FAC6125FCD3CC008E3DFB /* Poppins-ExtraLightItalic.ttf */; };
@@ -101,6 +99,17 @@
 		E1B540C125FD25A300271BEB /* PickupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B540C025FD25A300271BEB /* PickupView.swift */; };
 		E1BB9BEE25FD292A00F27C2B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB9BED25FD292A00F27C2B /* MapView.swift */; };
 		E1BB9BF225FD29D600F27C2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1BB9BF125FD29D600F27C2B /* GoogleService-Info.plist */; };
+		E1F30A63260265AF0054F5EB /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A50260265AF0054F5EB /* Helpers.swift */; };
+		E1F30A68260265AF0054F5EB /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A57260265AF0054F5EB /* IndicatorPoint.swift */; };
+		E1F30A69260265AF0054F5EB /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A58260265AF0054F5EB /* LineView.swift */; };
+		E1F30A6A260265AF0054F5EB /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A59260265AF0054F5EB /* Legend.swift */; };
+		E1F30A6B260265AF0054F5EB /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A5A260265AF0054F5EB /* LineChartView.swift */; };
+		E1F30A6C260265AF0054F5EB /* MagnifierRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A5B260265AF0054F5EB /* MagnifierRect.swift */; };
+		E1F30A6D260265AF0054F5EB /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A5C260265AF0054F5EB /* Path+QuadCurve.swift */; };
+		E1F30A6E260265AF0054F5EB /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A5D260265AF0054F5EB /* MultiLineChartView.swift */; };
+		E1F30A6F260265AF0054F5EB /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30A5E260265AF0054F5EB /* Line.swift */; };
+		E1F30A7926026AE50054F5EB /* vegetables.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F30A7826026AE50054F5EB /* vegetables.json */; };
+		E1F30A7D26026AEF0054F5EB /* fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F30A7C26026AEF0054F5EB /* fruits.json */; };
 		F217C0599709783673584015 /* Pods_Fooance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA195EE1E337323B85345EA /* Pods_Fooance.framework */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +220,17 @@
 		E1B540C025FD25A300271BEB /* PickupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupView.swift; sourceTree = "<group>"; };
 		E1BB9BED25FD292A00F27C2B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E1BB9BF125FD29D600F27C2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1F30A50260265AF0054F5EB /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		E1F30A57260265AF0054F5EB /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
+		E1F30A58260265AF0054F5EB /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		E1F30A59260265AF0054F5EB /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
+		E1F30A5A260265AF0054F5EB /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		E1F30A5B260265AF0054F5EB /* MagnifierRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifierRect.swift; sourceTree = "<group>"; };
+		E1F30A5C260265AF0054F5EB /* Path+QuadCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+QuadCurve.swift"; sourceTree = "<group>"; };
+		E1F30A5D260265AF0054F5EB /* MultiLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartView.swift; sourceTree = "<group>"; };
+		E1F30A5E260265AF0054F5EB /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		E1F30A7826026AE50054F5EB /* vegetables.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vegetables.json; sourceTree = "<group>"; };
+		E1F30A7C26026AEF0054F5EB /* fruits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fruits.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +238,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12FABF525FCCFC4008E3DFB /* SwiftUICharts in Frameworks */,
 				F217C0599709783673584015 /* Pods_Fooance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +246,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12FAC5125FCD10B008E3DFB /* SwiftUICharts in Frameworks */,
 				E12FAC3725FCD0B0008E3DFB /* SwiftUI.framework in Frameworks */,
 				E12FAC3625FCD0B0008E3DFB /* WidgetKit.framework in Frameworks */,
 				0375B75EC352F49C35802275 /* Pods_FooanceWidgetExtension.framework in Frameworks */,
@@ -321,6 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				E12FABAB25FCCE9F008E3DFB /* ScanningView.swift */,
+				E1F30A7C26026AEF0054F5EB /* fruits.json */,
+				E1F30A7826026AE50054F5EB /* vegetables.json */,
 				E12FABB125FCCEC4008E3DFB /* ShoppingListView.swift */,
 				E12FABB425FCCED8008E3DFB /* ShoppingListRow.swift */,
 				E12FABBD25FCCF21008E3DFB /* ShoppingAddView.swift */,
@@ -342,6 +362,7 @@
 		E12FABC525FCCF5E008E3DFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1F30A4A260265AF0054F5EB /* SwiftUICharts */,
 				E12FAB8125FCCD5C008E3DFB /* ContentView.swift */,
 				E12FABB725FCCEED008E3DFB /* LeadingTextView.swift */,
 				E12FABAF25FCCEAA008E3DFB /* ShoppingList */,
@@ -438,6 +459,30 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		E1F30A4A260265AF0054F5EB /* SwiftUICharts */ = {
+			isa = PBXGroup;
+			children = (
+				E1F30A50260265AF0054F5EB /* Helpers.swift */,
+				E1F30A56260265AF0054F5EB /* LineChart */,
+			);
+			path = SwiftUICharts;
+			sourceTree = "<group>";
+		};
+		E1F30A56260265AF0054F5EB /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				E1F30A57260265AF0054F5EB /* IndicatorPoint.swift */,
+				E1F30A58260265AF0054F5EB /* LineView.swift */,
+				E1F30A59260265AF0054F5EB /* Legend.swift */,
+				E1F30A5A260265AF0054F5EB /* LineChartView.swift */,
+				E1F30A5B260265AF0054F5EB /* MagnifierRect.swift */,
+				E1F30A5C260265AF0054F5EB /* Path+QuadCurve.swift */,
+				E1F30A5D260265AF0054F5EB /* MultiLineChartView.swift */,
+				E1F30A5E260265AF0054F5EB /* Line.swift */,
+			);
+			path = LineChart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,7 +504,6 @@
 			);
 			name = Fooance;
 			packageProductDependencies = (
-				E12FABF425FCCFC4008E3DFB /* SwiftUICharts */,
 			);
 			productName = Fooance;
 			productReference = E12FAB7A25FCCD5C008E3DFB /* Fooance.app */;
@@ -480,7 +524,6 @@
 			);
 			name = FooanceWidgetExtension;
 			packageProductDependencies = (
-				E12FAC5025FCD10B008E3DFB /* SwiftUICharts */,
 			);
 			productName = FooanceWidgetExtension;
 			productReference = E12FAC3525FCD0B0008E3DFB /* FooanceWidgetExtension.appex */;
@@ -513,7 +556,6 @@
 			);
 			mainGroup = E12FAB7125FCCD5C008E3DFB;
 			packageReferences = (
-				E12FABF325FCCFC4008E3DFB /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = E12FAB7B25FCCD5C008E3DFB /* Products */;
 			projectDirPath = "";
@@ -538,6 +580,7 @@
 				E12FAC7D25FCD3CC008E3DFB /* Poppins-Regular.ttf in Resources */,
 				E12FABE925FCCF97008E3DFB /* OFL.txt in Resources */,
 				E12FABE125FCCF97008E3DFB /* Poppins-ExtraLightItalic.ttf in Resources */,
+				E1F30A7D26026AEF0054F5EB /* fruits.json in Resources */,
 				E12FABE825FCCF97008E3DFB /* Poppins-BlackItalic.ttf in Resources */,
 				E12FABDF25FCCF97008E3DFB /* Poppins-ExtraLight.ttf in Resources */,
 				E12FABEF25FCCF97008E3DFB /* Poppins-SemiBold.ttf in Resources */,
@@ -550,6 +593,7 @@
 				E12FAC8025FCD3CC008E3DFB /* Poppins-Black.ttf in Resources */,
 				E12FAC8425FCD3CC008E3DFB /* Poppins-MediumItalic.ttf in Resources */,
 				E12FAC8325FCD3CC008E3DFB /* Poppins-Italic.ttf in Resources */,
+				E1F30A7926026AE50054F5EB /* vegetables.json in Resources */,
 				E12FABED25FCCF97008E3DFB /* Poppins-Black.ttf in Resources */,
 				E12FAC8125FCD3CC008E3DFB /* Poppins-Thin.ttf in Resources */,
 				E12FABF025FCCF97008E3DFB /* Poppins-Italic.ttf in Resources */,
@@ -673,13 +717,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F30A6F260265AF0054F5EB /* Line.swift in Sources */,
 				E12FABB225FCCEC4008E3DFB /* ShoppingListView.swift in Sources */,
 				E1BB9BEE25FD292A00F27C2B /* MapView.swift in Sources */,
 				E12FAB9E25FCCDDF008E3DFB /* FontSelectionView.swift in Sources */,
 				E12FAB7E25FCCD5C008E3DFB /* AppDelegate.swift in Sources */,
+				E1F30A68260265AF0054F5EB /* IndicatorPoint.swift in Sources */,
 				E12FABBB25FCCF0C008E3DFB /* ItemDetailsView.swift in Sources */,
 				E1B540B925FD127600271BEB /* LocRow.swift in Sources */,
+				E1F30A6A260265AF0054F5EB /* Legend.swift in Sources */,
+				E1F30A6B260265AF0054F5EB /* LineChartView.swift in Sources */,
 				E12FAB8025FCCD5C008E3DFB /* SceneDelegate.swift in Sources */,
+				E1F30A63260265AF0054F5EB /* Helpers.swift in Sources */,
+				E1F30A6D260265AF0054F5EB /* Path+QuadCurve.swift in Sources */,
 				E12FABB825FCCEED008E3DFB /* LeadingTextView.swift in Sources */,
 				E12FABB525FCCED8008E3DFB /* ShoppingListRow.swift in Sources */,
 				E12FABC825FCCF84008E3DFB /* ExpensesView.swift in Sources */,
@@ -692,10 +742,13 @@
 				E12FAB9825FCCDA9008E3DFB /* WidgetPreview.swift in Sources */,
 				E12FABBE25FCCF21008E3DFB /* ShoppingAddView.swift in Sources */,
 				E1B540C125FD25A300271BEB /* PickupView.swift in Sources */,
+				E1F30A6C260265AF0054F5EB /* MagnifierRect.swift in Sources */,
 				E12FABC125FCCF37008E3DFB /* ExpensesRootView.swift in Sources */,
 				E12FAB9325FCCD6F008E3DFB /* ConfigureWidgetView.swift in Sources */,
 				E12FAB8225FCCD5C008E3DFB /* ContentView.swift in Sources */,
+				E1F30A6E260265AF0054F5EB /* MultiLineChartView.swift in Sources */,
 				E12FABA225FCCE26008E3DFB /* Data.swift in Sources */,
+				E1F30A69260265AF0054F5EB /* LineView.swift in Sources */,
 				E12FAC4025FCD0B1008E3DFB /* FooanceWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -974,30 +1027,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E12FABF325FCCFC4008E3DFB /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E12FABF425FCCFC4008E3DFB /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E12FABF325FCCFC4008E3DFB /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-		E12FAC5025FCD10B008E3DFB /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E12FABF325FCCFC4008E3DFB /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E12FAB7225FCCD5C008E3DFB /* Project object */;
 }

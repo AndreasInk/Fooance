@@ -63,3 +63,12 @@ struct Pickup: Identifiable, Codable, Equatable, Hashable {
     var loc: GeoPoint
     
 }
+
+struct Vegetables: Codable, Hashable {
+    var description: String
+    var vegetables: [String]
+}
+struct Fruits: Codable, Hashable {
+    var description: String
+    var fruits: [String]
+}
