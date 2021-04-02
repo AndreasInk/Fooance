@@ -22,13 +22,14 @@ struct ItemDetailsView: View {
     @State var landmarks = [Landmark]()
     @ObservedObject var locationManager: LocationManager
     @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-    
+    @State var lists = [ItemsList(items: [Item](), date: Date(), title: "")]
     var body: some View {
         ZStack {
             Color.clear
                 .onAppear() {
                     if item.name.lowercased().contains("berr") {
                         img = "berries"
+                        item.type = "Fruit"
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     region = locationManager.currentRegion ?? MKCoordinateRegion(
@@ -77,7 +78,17 @@ struct ItemDetailsView: View {
                 } else {
                     LeadingTextView(text: item.name + " expires in " + timeTillString, size: 14)
                 }
-            
+                if item.type != "" {
+                HStack {
+                    Text(item.type)
+                        .font(.custom("Poppins-Bold", size: 12, relativeTo: .subheadline))
+                        .foregroundColor(Color(.white))
+                        .padding()
+                        .background(LinearGradient(gradient: Gradient(colors: [Color("blue"), Color("lightBlue")]), startPoint: .leading, endPoint: .bottomTrailing)
+                                        .clipShape(RoundedRectangle(cornerRadius: 25.0)))
+                    Spacer()
+                } .padding(.leading)
+                }
             Toggle(isOn: $item.noti) {
                 Text("Expiration Notifications")
                     .font(.custom("Poppins-Bold", size: 18, relativeTo: .headline))
@@ -154,7 +165,7 @@ struct ItemDetailsView: View {
             }
             if edit {
                 Color(.systemBackground)
-                ShoppingAddView(item: $item, add: $edit)
+                ShoppingAddView(item: $item, add: $edit, list: $lists[0])
                     .padding(.top, 100)
             }
         } .sheet(isPresented: $pickup, content: {

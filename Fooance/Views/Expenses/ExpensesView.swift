@@ -58,8 +58,8 @@ struct ExpensesView: View {
                         
                         Spacer()
                         HStack(spacing: 0) {
+
                             Text((Double(expenses.reduce(0, +)/budget).rounded(toPlaces: 3)*100).removeZerosFromEnd())
-                                
                                 .font(.custom("Poppins-Bold", size: 18, relativeTo: .headline))
                                 .foregroundColor(Color("text"))
                             Text("%")
@@ -84,8 +84,17 @@ struct ExpensesView: View {
                 .sheet(isPresented: $settings, content: {
                     ScrollView {
                     VStack {
+                        HStack {
+                            Button(action: {
+                                settings = false
+                            }) {
+                                Image(systemName: "xmark")
+                                    .font(.title)
+                            } .padding()
+                            Spacer()
+                        }
                         HStack(spacing: 0) {
-                        Text("Budget: ")
+                        Text("Monthly Budget: ")
                             .foregroundColor(Color("text"))
                             .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
                        Text(budgetString)
@@ -98,7 +107,7 @@ struct ExpensesView: View {
 //                        .font(.custom("Poppins-Bold", size: 14, relativeTo: .headline))
 //                        .padding()
                         
-                        Slider(value: $userData.monthlyBudget, in: 0...5000, step: 10)
+                        Slider(value: $userData.monthlyBudget, in: 0...3000, step: 10)
                             .padding()
                         .onChange(of: budgetString, perform: { value in
                             budgetString =  budgetString.replacingOccurrences(of: "$", with: "", options: NSString.CompareOptions.literal, range:nil)

@@ -9,7 +9,6 @@
 import WidgetKit
 import SwiftUI
 import Intents
-import SwiftUICharts
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationIntent())

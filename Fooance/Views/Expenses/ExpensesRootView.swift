@@ -5,12 +5,12 @@
 //  Created by Andreas on 3/13/21.
 //
 
-import SwiftUI
+import SwiftUI  
 
 struct ExpensesRootView: View {
     @State private var date = Date()
     @State var open = false
-    @State var items = [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)]
+    @State var items = [Item]()
     @Binding var lists: [ItemsList]
     @Binding var list: ItemsList
     @Binding var i: Int
@@ -39,7 +39,9 @@ struct ExpensesRootView: View {
 //                                 }
 //                             }
                             
-                            self.list = list
+                            items += list.items
+                            items = items.removeDuplicates()
+                            
                         }
                         }
                         }
@@ -47,6 +49,7 @@ struct ExpensesRootView: View {
                     }
                 }
                 .onChange(of: date, perform: { value in
+                    items.removeAll()
                     for list in lists {
                         let components = list.date.get(.day, .month, .year)
                         let components2 = date.get(.day, .month, .year)
@@ -62,7 +65,7 @@ struct ExpensesRootView: View {
 //                                 }
 //                             }
                             
-                            self.list = list
+                            items += list.items
                         }
                         }
                         }
@@ -71,8 +74,9 @@ struct ExpensesRootView: View {
                     
                 })
             if !open {
-            ExpensesView(items: $lists[i].items)
-               
+                if lists.indices.contains(i) {
+            ExpensesView(items: $items)
+                }
             }
                     
                 }

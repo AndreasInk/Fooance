@@ -8,9 +8,9 @@
 import SwiftUI
 import WidgetKit
 struct ContentView: View {
-    @State var lists = [ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())]
-    @State var i = 6
-    @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date())
+    @State var lists = [ItemsList]()
+    @State var i = 0
+    @State var list = ItemsList(items: [Item(name: "Strawberries", type: "Fruit", price: "1.25", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.80", expirationDate: Date(), check: false, noti: true, notiSet: false), Item(name: "Strawberries", type: "Fruit", price: "1.00", expirationDate: Date(), check: false, noti: true, notiSet: false)], date: Date(), title: "")
     @State private var date = Date()
     @EnvironmentObject var userData: UserData
     var body: some View {
@@ -62,7 +62,7 @@ struct ContentView: View {
                     
                 }
             TabView {
-                ShoppingListView(lists: $lists, i: $i)
+               ListsView(lists: $lists, i: $i)
                            .tabItem {
                                Label("Home", systemImage: "house")
                            }
@@ -105,8 +105,9 @@ struct ContentView: View {
                         }
                         let defaults = UserDefaults(suiteName: "group.foonance.app")
                         defaults?.setValue(Int(mins.min() ?? 0), forKey: "min")
-                       
+                        if !mins.isEmpty {
                         defaults?.setValue(items[find(value: Int(mins.min() ?? 0), in: mins) ?? 0], forKey: "item")
+                        }
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                    }
@@ -115,11 +116,13 @@ struct ContentView: View {
 }
     func find(value searchValue: Int, in array: [Int]) -> Int?
     {
+       
         for (index, value) in array.enumerated()
         {
             if value == searchValue {
                 return index
             }
+        
         }
 
         return nil

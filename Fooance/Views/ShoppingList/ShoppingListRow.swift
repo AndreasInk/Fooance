@@ -61,7 +61,6 @@ struct ShoppingListRow: View {
                             open = false
                         }) {
                             Image(systemName: "xmark")
-                                .foregroundColor(.gray)
                                 .font(.title)
                                 .padding()
                         }
@@ -127,7 +126,6 @@ struct ShoppingListRow2: View {
                             open = false
                         }) {
                             Image(systemName: "xmark")
-                                .foregroundColor(.gray)
                                 .font(.title)
                                 .padding()
                         }

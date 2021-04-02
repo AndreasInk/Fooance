@@ -11,6 +11,7 @@ struct ItemsList: Identifiable, Hashable, Codable {
     var id = UUID()
     var items: [Item]
     var date: Date
+    var title: String
 }
 struct Item: Identifiable, Hashable, Codable {
     var id = UUID()
@@ -53,7 +54,7 @@ import FirebaseFirestore
 struct Pickups: Identifiable, Codable, Equatable, Hashable {
     var id: String
     var pickups: [Pickup]
-   
+    
     
 }
 
